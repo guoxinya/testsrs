@@ -213,6 +213,9 @@ int SrsStatisticClient::dumps(stringstream& ss)
             << SRS_JFIELD_STR("swfUrl", req->swfUrl) << SRS_JFIELD_CONT
             << SRS_JFIELD_STR("tcUrl", req->tcUrl) << SRS_JFIELD_CONT
             << SRS_JFIELD_STR("url", req->get_stream_url()) << SRS_JFIELD_CONT
+			//gxy add 201705192315
+			// add output key
+			<< SRS_JFIELD_STR("key", req->key) << SRS_JFIELD_CONT
             << SRS_JFIELD_STR("type", srs_client_type_string(type)) << SRS_JFIELD_CONT
             << SRS_JFIELD_BOOL("publish", srs_client_type_is_publish(type)) << SRS_JFIELD_CONT
             << SRS_JFIELD_ORG("alive", srs_get_system_time_ms() - create)
@@ -551,6 +554,7 @@ SrsStatisticStream* SrsStatistic::create_stream(SrsStatisticVhost* vhost, SrsReq
         stream = new SrsStatisticStream();
         stream->vhost = vhost;
         stream->stream = req->stream;
+		
         stream->app = req->app;
         stream->url = url;
         rstreams[url] = stream;

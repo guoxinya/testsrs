@@ -474,6 +474,7 @@ int SrsRtmpConn::stream_service_cycle()
     req->strip();
 	
 	//gxy add 截取stream
+	req->key = req->stream;
 	std::size_t pos = req->stream.find("?");
     std::string subStream = req->stream.substr(0,pos);
     req->stream = subStream;

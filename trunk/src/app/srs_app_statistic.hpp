@@ -67,6 +67,7 @@ public:
     std::string app;
     std::string stream;
     std::string url;
+	
     bool active;
     int connection_cid;
     int nb_clients;

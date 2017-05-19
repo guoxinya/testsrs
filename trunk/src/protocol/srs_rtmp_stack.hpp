@@ -573,6 +573,11 @@ public:
     std::string param;
     // the stream in play/publish
     std::string stream;
+	
+	//gxy add 201705192310
+	// the auth key
+	std::string key;
+	
     // for play live stream,
     // used to specified the stop when exceed the duration.
     // @see https://github.com/ossrs/srs/issues/45

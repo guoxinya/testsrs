@@ -1727,6 +1727,8 @@ SrsRequest* SrsRequest::copy()
     cp->param = param;
     cp->schema = schema;
     cp->stream = stream;
+	//gxy add 201705192318
+	cp->key = key;
     cp->swfUrl = swfUrl;
     cp->tcUrl = tcUrl;
     cp->vhost = vhost;
