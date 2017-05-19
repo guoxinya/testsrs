@@ -77,6 +77,11 @@ int SrsHttpHooks::on_connect(string url, SrsRequest* req)
     std::string data = ss.str();
     std::string res;
     int status_code;
+	
+	//gxy add 201705192333
+	//printf log
+	srs_info("url=%s,data=%s",url,data);
+	
     if ((ret = do_post(url, data, status_code, res)) != ERROR_SUCCESS) {
         srs_error("http post on_connect uri failed. "
             "client_id=%d, url=%s, request=%s, response=%s, code=%d, ret=%d",
