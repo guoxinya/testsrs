@@ -473,7 +473,10 @@ int SrsRtmpConn::stream_service_cycle()
     }
     req->strip();
 	
-	
+	//gxy add 截取stream
+	std::size_t pos = req->stream.find("?");
+    std::string subStream = req->stream.substr(0,pos);
+    req->stream = subStream;
 	
     srs_trace("client identified, type=%s, stream_name=%s, duration=%.2f", 
         srs_client_type_string(type).c_str(), req->stream.c_str(), req->duration);
