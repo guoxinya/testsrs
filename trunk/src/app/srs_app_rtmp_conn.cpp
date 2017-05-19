@@ -611,7 +611,7 @@ int SrsRtmpConn::check_vhost()
         srs_error("check refer failed. ret=%d", ret);
         return ret;
     }
-    srs_verbose("check refer success.");
+    srs_trace("check refer success.");
     
     if ((ret = http_hooks_on_connect()) != ERROR_SUCCESS) {
         return ret;
