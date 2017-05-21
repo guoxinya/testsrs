@@ -755,7 +755,7 @@ string SrsHttpMessage::parse_rest_str(string pattern)
         return "";
     }
     
-	std::size_t pos = str.find(pattern);
+	std::size_t pos = p.find(pattern);
 	
     string str = p.substr(pos+(int)pattern.length());
     
