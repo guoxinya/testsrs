@@ -266,7 +266,7 @@ public:
 	 * gxy add 201705212223
      * get the RESTful matched str.
      */
-	std::string parse_rest_str(std::string pattern);
+	virtual std::string parse_rest_str(std::string pattern);
 public:
     virtual int enter_infinite_chunked();
 public:
