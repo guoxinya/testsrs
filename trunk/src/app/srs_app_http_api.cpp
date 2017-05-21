@@ -790,7 +790,7 @@ int SrsGoApiFindKey::serve_http(ISrsHttpResponseWriter* w, ISrsHttpMessage* r)
     
     // path: {pattern}{key}
     // e.g. /api/v1/findkey/key     pattern= /api/v1/findkey/, key=ddd
-	srs_trace("pattern=%s",entry->pattern);
+	srs_trace("pattern=%s",entry->pattern.c_str());
     std::string key = r->parse_rest_str(entry->pattern);
 	
 	std::stringstream data;
