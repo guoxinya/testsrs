@@ -793,12 +793,12 @@ int SrsGoApiFindKey::serve_http(ISrsHttpResponseWriter* w, ISrsHttpMessage* r)
     std::string key = r->parse_rest_str(entry->pattern);
 	
 	std::stringstream data;
-    ret = stat->dumps_clients(data, 0, 10);
+    ret = stat->dumps_key(data, key);
             
 	ss  << SRS_JOBJECT_START
 		<< SRS_JFIELD_ERROR(ret) << SRS_JFIELD_CONT
 		<< SRS_JFIELD_ORG("server", stat->server_id()) << SRS_JFIELD_CONT
-		<< SRS_JFIELD_ORG("clients", data.str())
+		<< SRS_JFIELD_ORG("client", data.str())
 		<< SRS_JOBJECT_END;
         
     srs_trace("data=%s,key=%s",ss.str(), key.c_str());   

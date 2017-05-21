@@ -236,6 +236,11 @@ public:
      * @param count the max count of clients to dump.
      */
     virtual int dumps_clients(std::stringstream& ss, int start, int count);
+	
+	/**
+     * dumps the key to sstream in json.
+     */
+    virtual int dumps_key(std::stringstream& ss, std::string key);
 private:
     virtual SrsStatisticVhost* create_vhost(SrsRequest* req);
     virtual SrsStatisticStream* create_stream(SrsStatisticVhost* vhost, SrsRequest* req);

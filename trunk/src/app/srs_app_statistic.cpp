@@ -525,6 +525,29 @@ int SrsStatistic::dumps_clients(stringstream& ss, int start, int count)
     return ret;
 }
 
+int SrsStatistic::dumps_key(std::stringstream& ss, std::string key)
+{
+	int ret = ERROR_SUCCESS;
+    
+    ss << SRS_JARRAY_START;
+    std::map<int, SrsStatisticClient*>::iterator it = clients.begin();
+    for (int i = 0; i < count && it != clients.end(); it++, i++) {
+       
+        SrsStatisticClient* client = it->second;
+        
+        if (client->req->key.compare(key) == 0) {
+            if ((ret = client->dumps(ss)) != ERROR_SUCCESS) {
+				return ret;
+			}
+			break;
+        }
+    }
+    ss << SRS_JARRAY_END;
+    
+    
+    return ret;
+}
+
 SrsStatisticVhost* SrsStatistic::create_vhost(SrsRequest* req)
 {
     SrsStatisticVhost* vhost = NULL;
