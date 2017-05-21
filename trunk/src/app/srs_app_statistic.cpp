@@ -531,7 +531,7 @@ int SrsStatistic::dumps_key(std::stringstream& ss, std::string key)
     
     ss << SRS_JARRAY_START;
     std::map<int, SrsStatisticClient*>::iterator it = clients.begin();
-    for (int i = 0; i < count && it != clients.end(); it++, i++) {
+    for (;  it != clients.end(); it++, i++) {
        
         SrsStatisticClient* client = it->second;
         
