@@ -800,9 +800,7 @@ int SrsGoApiFindKey::serve_http(ISrsHttpResponseWriter* w, ISrsHttpMessage* r)
 		<< SRS_JFIELD_ERROR(ret) << SRS_JFIELD_CONT
 		<< SRS_JFIELD_ORG("server", stat->server_id()) << SRS_JFIELD_CONT
 		<< SRS_JFIELD_ORG("client", data.str())
-		<< SRS_JOBJECT_END;
-        
-    srs_trace("data=%s,key=%s",ss.str(), key.c_str());   
+		<< SRS_JOBJECT_END;  
     
 	return srs_api_response(w, r, ss.str());
 }

@@ -529,7 +529,6 @@ int SrsStatistic::dumps_key(std::stringstream& ss, std::string key)
 {
 	int ret = ERROR_SUCCESS;
     
-    ss << SRS_JARRAY_START;
     std::map<int, SrsStatisticClient*>::iterator it = clients.begin();
     for (;  it != clients.end(); it++) {
        
@@ -542,9 +541,7 @@ int SrsStatistic::dumps_key(std::stringstream& ss, std::string key)
 			break;
         }
     }
-    ss << SRS_JARRAY_END;
-    
-    
+     
     return ret;
 }
 
