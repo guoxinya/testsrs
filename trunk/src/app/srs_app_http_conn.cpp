@@ -752,7 +752,7 @@ string SrsHttpMessage::parse_rest_str(string pattern)
 {
     string p = _uri->get_path();
     if (p.length() <= pattern.length()) {
-        return -1;
+        return "";
     }
     
     string str = p.substr((int)pattern.length());
