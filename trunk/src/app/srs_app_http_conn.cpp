@@ -750,12 +750,11 @@ int SrsHttpMessage::parse_rest_id(string pattern)
 
 string SrsHttpMessage::parse_rest_str(string pattern)
 {
-    string p = _uri->get_path();
+    string p = _uri->get_url();
     if (p.length() <= pattern.length()) {
         return "";
     }
     
-	srs_trace("path=%s,url=%s", _uri->get_path(), _uri->get_url());
     string str = p.substr((int)pattern.length());
     
     return str;
