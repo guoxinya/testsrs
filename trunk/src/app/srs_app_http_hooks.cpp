@@ -249,7 +249,8 @@ void SrsHttpHooks::on_stop(string url, SrsRequest* req)
         << SRS_JFIELD_STR("ip", req->ip) << SRS_JFIELD_CONT
         << SRS_JFIELD_STR("vhost", req->vhost) << SRS_JFIELD_CONT
         << SRS_JFIELD_STR("app", req->app) << SRS_JFIELD_CONT
-        << SRS_JFIELD_STR("stream", req->stream)
+        << SRS_JFIELD_STR("stream", req->stream) << SRS_JFIELD_CONT
+		<< SRS_JFIELD_STR("key", req->key)
         << SRS_JOBJECT_END;
         
     std::string data = ss.str();
