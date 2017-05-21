@@ -803,6 +803,7 @@ int SrsGoApiFindKey::serve_http(ISrsHttpResponseWriter* w, ISrsHttpMessage* r)
         
     srs_trace("data=%s,key=%s",ss.str(), key.c_str());   
     
+	return srs_api_response(w, r, ss.str());
 }
 
 SrsGoApiClients::SrsGoApiClients()
