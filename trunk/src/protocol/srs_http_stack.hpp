@@ -517,6 +517,12 @@ public:
      * @return the REST id; -1 if not matched.
      */
     virtual int parse_rest_id(std::string pattern) = 0;
+	
+	/**
+	 * gxy add 201705212223
+     * get the RESTful matched str.
+     */
+	virtual std::string parse_rest_str(std::string pattern) = 0;
 public:
     /**
      * the left all data is chunked body, the infinite chunked mode,
