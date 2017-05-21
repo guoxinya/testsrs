@@ -773,6 +773,38 @@ int SrsGoApiStreams::serve_http(ISrsHttpResponseWriter* w, ISrsHttpMessage* r)
     return ret;
 }
 
+SrsGoApiFindKey::SrsGoApiFindKey()
+{
+}
+
+SrsGoApiFindKey::~SrsGoApiFindKey()
+{
+}
+
+int SrsGoApiFindKey::serve_http(ISrsHttpResponseWriter* w, ISrsHttpMessage* r)
+{
+    int ret = ERROR_SUCCESS;
+    
+    SrsStatistic* stat = SrsStatistic::instance();
+    std::stringstream ss;
+    
+    // path: {pattern}{key}
+    // e.g. /api/v1/findkey/key     pattern= /api/v1/findkey/, key=ddd
+    std::string key = r->parse_rest_str(entry->pattern);
+	
+	std::stringstream data;
+    ret = stat->dumps_clients(data, 0, 10);
+            
+	ss  << SRS_JOBJECT_START
+		<< SRS_JFIELD_ERROR(ret) << SRS_JFIELD_CONT
+		<< SRS_JFIELD_ORG("server", stat->server_id()) << SRS_JFIELD_CONT
+		<< SRS_JFIELD_ORG("clients", data.str())
+		<< SRS_JOBJECT_END;
+        
+    srs_trace("data=%s,key=%s",ss.c_str(), key.c_str());   
+    
+}
+
 SrsGoApiClients::SrsGoApiClients()
 {
 }

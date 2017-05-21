@@ -810,6 +810,9 @@ int SrsServer::http_handle()
     if ((ret = http_api_mux->handle("/api/v1/streams/", new SrsGoApiStreams())) != ERROR_SUCCESS) {
         return ret;
     }
+	if ((ret = http_api_mux->handle("/api/v1/findkey/", new SrsGoApiFindKey())) != ERROR_SUCCESS) {
+        return ret;
+    }
     if ((ret = http_api_mux->handle("/api/v1/clients/", new SrsGoApiClients())) != ERROR_SUCCESS) {
         return ret;
     }

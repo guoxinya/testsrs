@@ -261,6 +261,12 @@ public:
      * get the RESTful matched id.
      */
     virtual int parse_rest_id(std::string pattern);
+	
+	/**
+	 * gxy add 201705212223
+     * get the RESTful matched str.
+     */
+	virtual std::string parse_rest_str(std::string pattern);
 public:
     virtual int enter_infinite_chunked();
 public:

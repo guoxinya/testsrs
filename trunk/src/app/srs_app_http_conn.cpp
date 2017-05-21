@@ -748,6 +748,18 @@ int SrsHttpMessage::parse_rest_id(string pattern)
     return -1;
 }
 
+string SrsHttpMessage::parse_rest_str(string pattern)
+{
+    string p = _uri->get_path();
+    if (p.length() <= pattern.length()) {
+        return -1;
+    }
+    
+    string str = p.substr((int)pattern.length());
+    
+    return str;
+}
+
 int SrsHttpMessage::enter_infinite_chunked()
 {
     int ret = ERROR_SUCCESS;

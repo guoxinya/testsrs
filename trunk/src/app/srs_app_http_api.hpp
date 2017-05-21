@@ -168,6 +168,17 @@ public:
     virtual int serve_http(ISrsHttpResponseWriter* w, ISrsHttpMessage* r);
 };
 
+//gxy add 201705212214
+//find key
+class SrsGoApiFindKey : public ISrsHttpHandler
+{
+public:
+    SrsGoApiFindKey();
+    virtual ~SrsGoApiFindKey();
+public:
+    virtual int serve_http(ISrsHttpResponseWriter* w, ISrsHttpMessage* r);
+};
+
 class SrsGoApiClients : public ISrsHttpHandler
 {
 public:
