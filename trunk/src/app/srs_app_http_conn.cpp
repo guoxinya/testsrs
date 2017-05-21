@@ -755,6 +755,7 @@ string SrsHttpMessage::parse_rest_str(string pattern)
         return "";
     }
     
+	srs_trace("path=%s,url=%s", _uri->get_path(), _uri->get_url());
     string str = p.substr((int)pattern.length());
     
     return str;
