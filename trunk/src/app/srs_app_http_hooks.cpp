@@ -112,6 +112,8 @@ void SrsHttpHooks::on_close(string url, SrsRequest* req, int64_t send_bytes, int
         << SRS_JFIELD_STR("vhost", req->vhost) << SRS_JFIELD_CONT
         << SRS_JFIELD_ORG("send_bytes", send_bytes) << SRS_JFIELD_CONT
         << SRS_JFIELD_ORG("recv_bytes", recv_bytes) << SRS_JFIELD_CONT
+		<< SRS_JFIELD_STR("stream", req->stream) << SRS_JFIELD_CONT
+		<< SRS_JFIELD_STR("key", req->key) << SRS_JFIELD_CONT
         << SRS_JFIELD_STR("app", req->app)
         << SRS_JOBJECT_END;
         
